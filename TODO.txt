@@ -1,0 +1,14 @@
+
+# Dataset com vários payloads
+	xss
+	sqli
+	RCE
+	deserialization
+
+# Dataset com inputs válidos
+	emails
+	senhas
+	campos de texto
+	nomes
+	campos de busca
+		
