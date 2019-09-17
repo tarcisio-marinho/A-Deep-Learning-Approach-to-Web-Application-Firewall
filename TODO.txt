@@ -4,6 +4,7 @@
 	sqli
 	RCE
 	deserialization
+	path traversal
 
 # Dataset com inputs válidos
 	emails
