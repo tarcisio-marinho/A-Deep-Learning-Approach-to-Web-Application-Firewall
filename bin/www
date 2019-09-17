@@ -7,13 +7,14 @@
 var app = require('../app');
 var debug = require('debug')('mlpayload:server');
 var http = require('http');
+var environment = require('../environment/environment')
 
 /**
  * Get port from environment and store in Express.
  */
 
 var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+app.set('port', environment.SERVER_PORT);
 
 /**
  * Create HTTP server.
