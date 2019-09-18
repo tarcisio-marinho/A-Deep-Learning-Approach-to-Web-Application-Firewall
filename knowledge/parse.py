@@ -15,10 +15,12 @@ def create_dataset(path):
     if(not os.path.isdir(path)):
         error('Path: %s is invalid' %(path), IOError, 1)
     
+    # dataset = {}
     dataset = []
     for label in os.listdir(path):
         label_name = "__label__" + label
         full_label_path = os.path.abspath(os.path.join(path, label))
+        # dataset[label] = []
         for found_file in os.listdir(full_label_path):
             with open(os.path.join(full_label_path, found_file), encoding='ISO-8859-1') as f:
                 contents = f.readlines()
@@ -37,6 +39,20 @@ def create_dataset(path):
         
 if __name__ == "__main__": 
     dataset = create_dataset(config.get('dataset_path'))
-    with open('../datasets/dataset.txt', 'w') as f:
+    # for i in dataset:
+    #     print(i, len(dataset[i]))
+    with open('../models/dataset2.txt', 'w') as f:
         for i in dataset:
             f.write(i)
+            
+            
+# rce 518
+# passwords 6732
+# sql 1484
+# numbers 840
+# email 40175
+# path-traversal 23042
+# xss 2345
+# usernames 18488
+# xxe 116
+# file-inclusion 7944
