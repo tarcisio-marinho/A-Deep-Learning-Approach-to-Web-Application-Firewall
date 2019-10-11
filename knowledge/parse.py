@@ -41,7 +41,7 @@ if __name__ == "__main__":
     dataset = create_dataset(config.get('dataset_path'))
     # for i in dataset:
     #     print(i, len(dataset[i]))
-    with open('../models/dataset2.txt', 'w') as f:
+    with open('../models/dataset4.txt', 'w') as f:
         for i in dataset:
             f.write(i)
             
