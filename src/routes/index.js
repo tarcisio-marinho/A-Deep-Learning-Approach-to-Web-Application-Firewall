@@ -4,7 +4,7 @@ const { spawn } = require('child_process');
 
 /* GET home page. */
 router.get('/', (req, res, next) =>{
-  res.render('index', { title: 'Express' });
+  res.send({ title: 'Express'});
 
 
     const mlPython = spawn('python', ['identify.py']);
@@ -14,6 +14,11 @@ router.get('/', (req, res, next) =>{
         res.write(data);
         res.end('end');
     });
+});
+
+
+router.post('/', (req, res, next) =>{
+  res.send("post works")
 });
 
 module.exports = router;
