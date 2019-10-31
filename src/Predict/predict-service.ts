@@ -4,9 +4,7 @@ const spawn = require("child_process").spawn;
 const fs = require("fs");
 
 class GroupsService {
-    public constructor() {
-
-    }
+    public constructor() {}
 
     public predict(payload: string, callback: any) {
 

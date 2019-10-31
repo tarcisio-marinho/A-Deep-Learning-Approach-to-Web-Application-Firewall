@@ -11,8 +11,9 @@ class App {
         this.app = express();
         this.cors();
         this.helmet();
-        this.routes();
+        this.json();
         this.port();
+        this.routes();
     }
 
     private routes(): void {
@@ -29,6 +30,10 @@ class App {
 
     private port(){
         this.app.listen(process.env.PORT || environment.SERVER_PORT);
+    }
+
+    private json(){
+        this.app.use(express.json());
     }
 }
 
