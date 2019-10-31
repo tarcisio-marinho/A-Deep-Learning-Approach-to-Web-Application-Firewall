@@ -13,6 +13,7 @@
     "@types/cors": "^2.8.6",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-json-error-handler": "^3.0.0",
     "helmet": "^3.20.1",
     "inversify": "^5.0.1",
     "reflect-metadata": "^0.1.13"

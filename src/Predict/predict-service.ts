@@ -7,6 +7,12 @@ class GroupsService {
     public constructor() {}
 
     public predict(payload: string, callback: any) {
+        console.log(payload)
+        try{
+            var stringfy = JSON.stringify(payload);
+        }catch(err){
+            throw ("Invalid JSON format");
+        }
 
         fs.writeFile(environment.PAYLOAD_FILE, payload, (err: any) => {
             if (err){

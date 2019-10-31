@@ -5,6 +5,7 @@ import { environment } from './Environment/Environment';
 const helmet = require('helmet')
 
 class App {
+    
     public app: express.Application;
     
     public constructor(){
@@ -14,6 +15,7 @@ class App {
         this.json();
         this.port();
         this.routes();
+        this.jsonParsingError();
     }
 
     private routes(): void {
@@ -34,6 +36,17 @@ class App {
 
     private json(){
         this.app.use(express.json());
+        
+    }
+
+    private jsonParsingError() {
+        this.app.use(function (error:any, req:any, res:any, next:any) {
+            if (error instanceof SyntaxError) {
+                res.status(400).send({error:"Invalid JSON payload."});
+            } else {
+              next();
+            }
+        });
     }
 }
 

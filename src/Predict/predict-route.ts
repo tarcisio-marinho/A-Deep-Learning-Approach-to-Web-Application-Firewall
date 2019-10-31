@@ -1,6 +1,7 @@
 import {Router} from 'express';
 import PredictService from './predict-service';
 import { exec } from 'child_process';
+import { read } from 'fs';
 const bodyParser = require('body-parser');
 
 class PredictRouter{
@@ -14,10 +15,8 @@ class PredictRouter{
 
     public getRoutes(){
         this.router.post('/', (req: any, res: any)=>{
-            var payload = req.body
-            console.log(payload)
             try{
-                this.PredictService.predict(payload, (response: any) => {
+                this.PredictService.predict(req.body, (response: any) => {
                     res.send(response);
                 });
             }catch(err){
