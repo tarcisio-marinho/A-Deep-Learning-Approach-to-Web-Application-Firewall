@@ -18,7 +18,7 @@ class PredictRouter{
                     res.send(response);
                 });
             }catch(err){
-                res.status(400).send({error:'Unknown Error'})
+                res.status(400).send({error: err})
             }
         });
     }
