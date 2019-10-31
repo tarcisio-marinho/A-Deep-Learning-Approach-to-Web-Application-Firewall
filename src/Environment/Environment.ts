@@ -1,6 +1,4 @@
-
-
-const environment = {
+export const environment = {
     production: false,
     PYTHON_SCRIPT: 'indentify.py',
     FILENAME: 'new_file.txt',
