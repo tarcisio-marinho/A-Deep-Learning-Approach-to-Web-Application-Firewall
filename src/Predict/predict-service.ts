@@ -14,7 +14,7 @@ class GroupsService {
             throw ("Invalid JSON format");
         }
 
-        fs.writeFile(environment.PAYLOAD_FILE, payload, (err: any) => {
+        fs.writeFile(environment.PAYLOAD_FILE, stringfy, (err: any) => {
             if (err){
                 throw err;
             }

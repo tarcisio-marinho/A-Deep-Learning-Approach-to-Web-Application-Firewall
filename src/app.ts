@@ -42,6 +42,7 @@ class App {
     private jsonParsingError() {
         this.app.use(function (error:any, req:any, res:any, next:any) {
             if (error instanceof SyntaxError) {
+                console.log("Invalid JSON received");
                 res.status(400).send({error:"Invalid JSON payload."});
             } else {
               next();

@@ -1,7 +1,5 @@
 import {Router} from 'express';
 import PredictService from './predict-service';
-import { exec } from 'child_process';
-import { read } from 'fs';
 const bodyParser = require('body-parser');
 
 class PredictRouter{
@@ -20,7 +18,7 @@ class PredictRouter{
                     res.send(response);
                 });
             }catch(err){
-                res.status(400).send({error:'error: ${err}'})
+                res.status(400).send({error:'Unknown Error'})
             }
         });
     }

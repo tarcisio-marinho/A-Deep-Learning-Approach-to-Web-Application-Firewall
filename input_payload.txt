@@ -1,1 +1,1 @@
-[object Object]
+{"asdas":"a]]]aaaaa123121231212312121123"}
