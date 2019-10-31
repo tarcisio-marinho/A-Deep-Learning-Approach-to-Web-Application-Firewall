@@ -12,6 +12,7 @@ class App {
         this.cors();
         this.helmet();
         this.routes();
+        this.port();
     }
 
     private routes(): void {
@@ -24,6 +25,10 @@ class App {
 
     private helmet(){
         this.app.use(helmet());
+    }
+
+    private port(){
+        this.app.listen(process.env.PORT || environment.SERVER_PORT);
     }
 }
 

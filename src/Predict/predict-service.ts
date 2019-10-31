@@ -15,10 +15,11 @@ class GroupsService {
                 throw err;
             }
 
-            var process = spawn('python', ["./knowledge/main.py", payload]);
+            var process = spawn('python', ["./knowledge/main.py", 
+                                            environment.PAYLOAD_FILE]);
 
             process.stdout.on('data', (pythonResponse: any) => {
-                callback({ data: pythonResponse });
+                callback({ data: pythonResponse.toString() });
             });
         });
     }
