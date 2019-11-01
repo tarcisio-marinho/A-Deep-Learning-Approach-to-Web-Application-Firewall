@@ -8,6 +8,9 @@ def is_valid_file(path):
         return False
     return True
 
+def delete_input_file(path):
+    os.remove(path)
+
 def identify(payload):
     return random.choice(['xss', 'sqli', 'path-traversal', 'valido', 'rce', 'xxe'])
         
