@@ -15,7 +15,7 @@ class App {
         this.json();
         this.port();
         this.routes();
-        this.jsonParsingError();
+        this.jsonParsingErrorMiddleware();
     }
 
     private routes(): void {
@@ -39,7 +39,7 @@ class App {
         
     }
 
-    private jsonParsingError() {
+    private jsonParsingErrorMiddleware() {
         this.app.use(function (error:any, req:any, res:any, next:any) {
             if (error instanceof SyntaxError) {
                 console.log("Invalid JSON received");

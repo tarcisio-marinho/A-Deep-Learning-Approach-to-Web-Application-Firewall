@@ -22,4 +22,4 @@ if __name__ == "__main__":
         print(identify(payload))
         
     else:
-        print("invalid input")
+        print("invalid input file")
