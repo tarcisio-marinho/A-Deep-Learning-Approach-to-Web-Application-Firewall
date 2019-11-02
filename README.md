@@ -7,7 +7,7 @@ Rest API for malicious payload validation using machine learning
 
 ## Request
 
-    POST /check
+    POST /predict
 
     {
         "data": "payload_here"
