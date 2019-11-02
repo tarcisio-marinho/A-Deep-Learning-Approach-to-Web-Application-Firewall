@@ -3,6 +3,7 @@ import sys
 import os
 import random
 import subprocess
+import json
 
 def is_valid_file(path):
     if(not os.path.isfile(path)):
@@ -21,19 +22,20 @@ def identify(model_path, payload):
     stderr = process.stderr.readlines()
     
     if(stderr):
-        print(stderr)
+        print(json.dumps(stderr))
     else:
         label = [payload.replace("__label__", "").replace("\n", "") for payload in stdout]
-        print(label)
+        print(json.dumps(label))
             
 if __name__ == "__main__":
-    model = 'models/model2.bin'
-    if(len(sys.argv)< 2):
-        print('invalid sintaxe, input file missing?')
+    if(len(sys.argv)< 3):
+        print('invalid sintaxe, model or input file missing?')
         sys.exit()
         
-    payload = sys.argv[1]
-    if(is_valid_file(payload)):
+    model = sys.argv[1]
+    payload = sys.argv[2]
+    
+    if(is_valid_file(payload) and is_valid_file(model)):
         identify(model, payload)
 
     else:

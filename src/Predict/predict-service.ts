@@ -25,10 +25,10 @@ class GroupsService {
 
     private runPython(callback:any) {
         var process = spawn('python', ["./knowledge/main.py",
-            environment.PAYLOAD_FILE]);
+         environment.MODEL_PATH, environment.PAYLOAD_FILE]);
 
         process.stdout.on('data', (pythonResponse: any) => {
-            callback({ data: pythonResponse.toString()});
+            callback({ data: JSON.parse(pythonResponse.toString().replace("\n", ""))});
         });
     }
 }
