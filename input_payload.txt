@@ -1,1 +1,1 @@
-SELECT * FROM asdnasdnja
+SELECT * FROM tb_user

@@ -39,7 +39,7 @@ Powered by machine learning, it predicts whether there's malicious payloads.
 The payload is probably a XSS attack.
 
 # Using with Python requests module
-![alt text](docs/payloads.png)
+![alt text](docs/payload1.png)
 
 # Using Postman
 ![alt text](docs/payload2.png)
