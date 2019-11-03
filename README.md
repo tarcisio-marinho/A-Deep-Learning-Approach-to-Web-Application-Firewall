@@ -33,7 +33,9 @@ Powered by machine learning, it predicts whether there's malicious payloads.
 ## Response
 
     {
-        "data":"xss"
+        "data": [
+            "xss"
+        ]
     }
 
 The payload is probably a XSS attack.
