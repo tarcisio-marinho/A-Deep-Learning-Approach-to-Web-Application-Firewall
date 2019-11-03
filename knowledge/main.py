@@ -13,8 +13,8 @@ def is_valid_file(path):
 def delete_input_file(path):
     os.remove(path)
 
-def identify(model_path, payload):
-    command = "fasttext predict %s %s" %(model_path, payload)
+def identify(fasttext_path, model_path, payload):
+    command = "%s predict %s %s" %(fasttext_path, model_path, payload)
     process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE,
                                stdin=subprocess.PIPE, stderr=subprocess.PIPE)
     
@@ -28,15 +28,16 @@ def identify(model_path, payload):
         print(json.dumps(label))
             
 if __name__ == "__main__":
-    if(len(sys.argv)< 3):
+    if(len(sys.argv)< 4):
         print('invalid sintaxe, model or input file missing?')
         sys.exit()
         
     model = sys.argv[1]
     payload = sys.argv[2]
+    fasttext_path = sys.argv[3]
     
     if(is_valid_file(payload) and is_valid_file(model)):
-        identify(model, payload)
+        identify(fasttext_path, model, payload)
 
     else:
         print("invalid input file")

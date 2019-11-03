@@ -1,1 +1,1 @@
-SELECT * FROM tb_user
+<script>alert(1);</script>

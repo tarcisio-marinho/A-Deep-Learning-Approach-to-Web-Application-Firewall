@@ -25,7 +25,7 @@ class GroupsService {
 
     private runPython(callback:any) {
         var process = spawn('python', ["./knowledge/main.py",
-         environment.MODEL_PATH, environment.PAYLOAD_FILE]);
+         environment.MODEL_PATH, environment.PAYLOAD_FILE, environment.FASTTEXT_PATH]);
 
         process.stdout.on('data', (pythonResponse: any) => {
             callback({ data: JSON.parse(pythonResponse.toString().replace("\n", ""))});
