@@ -15,6 +15,10 @@ class GroupsService {
 
         var file = fs.createWriteStream(environment.PAYLOAD_FILE, {flags:'w'})
 
+        if(! Array.isArray(payload['data'])){
+            throw ("Data in wrong format, expected a array of payloads");
+        }
+
         for(var element in payload['data']){
             file.write(payload['data'][element] + "\n");
         }
