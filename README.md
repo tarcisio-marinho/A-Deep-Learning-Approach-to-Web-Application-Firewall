@@ -27,13 +27,13 @@ Powered by machine learning, it predicts whether there's malicious payloads.
     Content-type: application/json
 
     {
-        "data": "<script> alert(1); </script>"
+        "data": ["<script> alert(1); </script>"]
     }
 
 ## Response
 
     {
-        "data":"Xss"
+        "data":"xss"
     }
 
 The payload is probably a XSS attack.
