@@ -1,0 +1,16 @@
+<div class="row">
+        <app-description>
+
+        </app-description>
+</div>
+
+<div>
+    <form [formGroup]="forms">
+        <div class="col-md-6 offset-3 form-body input-group">
+            <input class="form-control input-sm col-6 offset-lg-3" #cript formControlName="passwd">
+            <div class="input-group-append">
+                <button class="btn btn-primary" (click)="sendToServer(forms.value)">send</button>
+            </div>
+        </div>
+    </form>
+</div>

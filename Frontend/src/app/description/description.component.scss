@@ -1,0 +1,9 @@
+.description{
+    margin-top:3rem;
+}
+
+@media only screen and (max-width: 577px){
+    .description{
+        text-align: justify;
+    }
+}
