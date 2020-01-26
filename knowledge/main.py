@@ -24,7 +24,7 @@ def identify(fasttext_path, model_path, payload):
     if(stderr):
         print(json.dumps(stderr))
     else:
-        label = [output.replace("__label__", "").replace("\n", "") for output in stdout]
+        label = [output.decode('utf-8').replace("__label__", "").replace("\n", "") for output in stdout]
         print(json.dumps(label))
         
     delete_input_file(payload)
