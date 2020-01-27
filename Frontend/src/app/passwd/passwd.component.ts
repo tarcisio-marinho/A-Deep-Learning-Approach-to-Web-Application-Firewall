@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { PasswdService } from './passwd.services';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { HttpClientModule, /* other http imports */ } from "@angular/common/http";
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -28,9 +29,8 @@ export class PasswdComponent implements OnInit {
     let send = {
       data:[payload['passwd']]
     }
-    console.log(send)
     this.passwdService.Send(send).subscribe((ret: any) => {
-      alert(ret)
+      Swal.fire(ret['data'][0])
     });
   }
 }

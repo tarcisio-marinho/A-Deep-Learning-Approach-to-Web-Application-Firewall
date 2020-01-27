@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { PasswdModule } from './passwd/passwd.module';
 import { DescriptionModule } from './description/description.module';
 import { HttpClientModule, /* other http imports */ } from "@angular/common/http";
-
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 @NgModule({
@@ -15,6 +15,7 @@ import { HttpClientModule, /* other http imports */ } from "@angular/common/http
     AppComponent,
   ],
   imports: [
+    SweetAlert2Module.forRoot(),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
