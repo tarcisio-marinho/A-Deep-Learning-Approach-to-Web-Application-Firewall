@@ -4,43 +4,45 @@ import os
 import random
 import subprocess
 import json
+from utils import *
 
 def is_valid_file(path):
-    if(not os.path.isfile(path)):
+    if(os.path.isfile(path)):
         return False
     return True
 
-def delete_input_file(path):
-    os.remove(path)
 
-def identify(fasttext_path, model_path, payload):
-    command = "./%s supervised %s %s" %(fasttext_path, model_path, payload)
+def identify(fasttext_path, train_dataset, model_output):
+    command = "./%s supervised -input %s -output %s" %(fasttext_path, train_dataset, model_output)
     process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE,
                                stdin=subprocess.PIPE, stderr=subprocess.PIPE)
     
-    stdout = process.stdout.readlines()
     stderr = process.stderr.readlines()
     
-    if(stderr):
-        print(json.dumps(stderr))
-    else:
-        label = [output.decode('utf-8').replace("__label__", "").replace("\n", "") for output in stdout]
-        print(json.dumps(label))
+    for i in stderr:
+        print(i.decode())
+    print('model created !')
+    print('model path:', model_output + '.bin')
         
-    delete_input_file(payload)
             
 if __name__ == "__main__":
+    if(len(sys.argv)< 2):
+        print_help('model')
+        
+    output = sys.argv[1]
+    if(output == "--h" or output == '--help' or output == "-h"):
+        print_help('model')
+    
     if(len(sys.argv)< 4):
         print('invalid sintaxe, model or input file missing?')
         sys.exit()
     
-    
-    model = sys.argv[1]
-    payload = sys.argv[2]
+    train_dataset = output
+    modelname = sys.argv[2]
     fasttext_path = sys.argv[3]
     
-    if(is_valid_file(payload) and is_valid_file(model)):
-        identify(fasttext_path, model, payload)
+    if(os.path.isfile(fasttext_path) and is_valid_file(modelname) and os.path.isfile(train_dataset)):
+        identify(fasttext_path, train_dataset, modelname )
 
     else:
-        print("invalid input file")
+        print_help("model")

@@ -1,6 +1,7 @@
 from config import config
 from utils import *
 
+import sys
 import os
 import random
 
@@ -38,10 +39,28 @@ def create_dataset(path):
         
         
 if __name__ == "__main__": 
+    if(len(sys.argv)< 2):
+        print_help('dataset')
+
+    output = sys.argv[1]
+    if(output == "--h" or output == '--help' or output == "-h"):
+        print_help('dataset')
+        
+    if(os.path.isfile(output)):
+        error("File:" + output + " already exists", IOError(), 5)
+        
     dataset = create_dataset(config.get('dataset_path'))
+    print('Dataset Created!')
     print('Dataset Size:', len(dataset))
+    print('writing to disk!')
     
-    with open('models/dataset3.txt', 'w') as f:
-        for i in dataset:
-            f.write(i)
-            
+    try:
+        if('.txt' not in output):
+            output += '.txt'
+        with open(output, 'w') as f:
+            for i in dataset:
+                f.write(i)
+    except Exception as e:
+        error("Error occurred", e, 20)
+                    
+    print("Dataset writed on file: " + output)
