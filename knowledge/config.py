@@ -1,5 +1,5 @@
 
 
 config = {
-    'dataset_path': '../datasets/'
+    'dataset_path': 'datasets/'
 }

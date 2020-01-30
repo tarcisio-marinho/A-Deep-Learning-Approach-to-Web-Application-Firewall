@@ -6,14 +6,14 @@ import random
 
 def get_labels(path):
     if(not os.path.isdir(path)):
-        error('Path: %s is invalid' %(path), IOError, 1)
+        error('Path: %s is invalid' %(path), IOError(), 1)
         
     return ["__label__" + label for label in os.listdir(path)]
 
 
 def create_dataset(path):
     if(not os.path.isdir(path)):
-        error('Path: %s is invalid' %(path), IOError, 1)
+        error('Path: %s is invalid' %(path), IOError(), 1)
     
     # dataset = {}
     dataset = []
@@ -39,20 +39,9 @@ def create_dataset(path):
         
 if __name__ == "__main__": 
     dataset = create_dataset(config.get('dataset_path'))
-    # for i in dataset:
-    #     print(i, len(dataset[i]))
-    with open('../models/dataset4.txt', 'w') as f:
+    print('Dataset Size:', len(dataset))
+    
+    with open('models/dataset3.txt', 'w') as f:
         for i in dataset:
             f.write(i)
             
-            
-# rce 518
-# passwords 6732
-# sql 1484
-# numbers 840
-# email 40175
-# path-traversal 23042
-# xss 2345
-# usernames 18488
-# xxe 116
-# file-inclusion 7944
