@@ -1,4 +1,7 @@
-# Payload Identifier 
+# A Deep Learning Approach to Web Application Firewall
+
+Code for the paper: https://medium.com/@tarcisioma/a-deep-learning-approach-to-web-application-firewall-c6190a9bd31a
+
 
 ## Using Deep Learning to classify API attacks
 
